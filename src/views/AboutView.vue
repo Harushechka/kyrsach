@@ -14,6 +14,79 @@
       </div>
     </section>
 
+    <!-- Блок информации для клиентов -->
+    <section class="info-section">
+      <div class="container">
+        <div class="info-card">
+          <h2 class="section-title text-center">Информация для клиентов</h2>
+          
+          <div class="accordion-container">
+            <div class="accordion-item" x-data="{ open: false }">
+              <button class="accordion-header" @click="open = !open">
+                <span>Доставка</span>
+                <span class="accordion-icon" x-text="open ? '−' : '+'"></span>
+              </button>
+              <div class="accordion-content" x-show="open" x-collapse>
+                <p>Доставка по России осуществляется через СДЭК и Почту России. При заказе на сумму от 10 000 рублей доставка предоставляется бесплатно. Срок обработки заказа составляет 3 рабочих дня. Заказы на доставку принимаются с понедельника по пятницу. Если вы оформили заказ в выходной, его обработка начнется в ближайший рабочий день.</p>
+                <h3 class="mt-4 font-medium">Сроки доставки:</h3>
+                <ul class="list-disc pl-5 mt-2">
+                  <li>Доставка по Краснодару и Краснодарскому краю: при оформлении и оплате заказа до 14:00 доставка будет выполнена уже на следующий день.</li>
+                  <li>Доставка в другие города России: Обычно доставка занимает от 3 до 5 рабочих дней. Отправка в другие города производится через СДЭК или Почту России, при этом расходы на доставку несет покупатель.</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="accordion-item" x-data="{ open: false }">
+              <button class="accordion-header" @click="open = !open">
+                <span>Способы оплаты</span>
+                <span class="accordion-icon" x-text="open ? '−' : '+'"></span>
+              </button>
+              <div class="accordion-content" x-show="open" x-collapse>
+                <p>Мы принимаем следующие способы оплаты:</p>
+                <ul class="list-disc pl-5 mt-2">
+                  <li>Банковские карты (Visa, Mastercard, МИР)</li>
+                  <li>Онлайн-платежи через Сбербанк Онлайн, Тинькофф и другие банки</li>
+                  <li>Наложенный платеж (при получении в отделении СДЭК или Почты России)</li>
+                  <li>Электронные кошельки (QIWI, ЮMoney)</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="accordion-item" x-data="{ open: false }">
+              <button class="accordion-header" @click="open = !open">
+                <span>Возврат товара</span>
+                <span class="accordion-icon" x-text="open ? '−' : '+'"></span>
+              </button>
+              <div class="accordion-content" x-show="open" x-collapse>
+                <p>Вы можете вернуть товар в течение 14 дней с момента получения заказа. Для возврата необходимо:</p>
+                <ul class="list-disc pl-5 mt-2">
+                  <li>Сохранить оригинальную упаковку и товарный вид продукции</li>
+                  <li>Написать заявление на возврат</li>
+                  <li>Отправить товар обратно нам за свой счет</li>
+                </ul>
+                <p class="mt-4">Возврат денежных средств осуществляется в течение 10 рабочих дней после получения нами товара.</p>
+              </div>
+            </div>
+            
+            <div class="accordion-item" x-data="{ open: false }">
+              <button class="accordion-header" @click="open = !open">
+                <span>Самовывоз</span>
+                <span class="accordion-icon" x-text="open ? '−' : '+'"></span>
+              </button>
+              <div class="accordion-content" x-show="open" x-collapse>
+                <p>Вы можете забрать свой заказ самостоятельно из нашего офиса в Краснодаре:</p>
+                <p class="mt-2 font-medium">Адрес:</p>
+                <p>г. Краснодар, ул. Красная, 123, офис 45</p>
+                <p class="mt-2 font-medium">Часы работы:</p>
+                <p>Пн-Пт: 10:00 - 19:00<br>Сб: 11:00 - 16:00<br>Вс: выходной</p>
+                <p class="mt-4">Перед приездом обязательно свяжитесь с нами для подтверждения наличия заказа.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Блок команды -->
     <section class="team-section">
       <div class="container">
@@ -75,6 +148,25 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'AboutView',
+  mounted() {
+    this.loadAlpineJS();
+  },
+  methods: {
+    loadAlpineJS() {
+      if (window.Alpine) return;
+
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+  }
+}
+</script>
+
 <style scoped>
 .about-page {
   padding: 60px 0 0;
@@ -112,6 +204,64 @@
   line-height: 1.7;
   color: #333;
   margin-bottom: 15px;
+}
+
+/* Стили для блока информации для клиентов */
+.info-section {
+  margin-bottom: 60px;
+}
+
+.info-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.accordion-container {
+  margin-top: 30px;
+}
+
+.accordion-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 16px 20px;
+  text-align: left;
+  background-color: #f8fafc;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #2d3748;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.accordion-header:hover {
+  background-color: #edf2f7;
+}
+
+.accordion-icon {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #d6336c;
+}
+
+.accordion-content {
+  padding: 0 20px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.accordion-content p, .accordion-content ul {
+  padding: 16px 0;
 }
 
 /* Стили для блока команды */
@@ -180,7 +330,7 @@
 }
 
 /* Стили для секции социальных сетей */
-full-width-social-section {
+.full-width-social-section {
   width: 100vw;
   position: relative;
   left: 50%;
@@ -242,9 +392,12 @@ full-width-social-section {
 
 /* Адаптивность */
 @media (max-width: 768px) {
-  .certificate-layout {
-    flex-direction: column;
-    padding: 0 15px;
+  .about-card, .info-card {
+    padding: 25px;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
   }
   
   .full-width-social-section {
@@ -259,13 +412,17 @@ full-width-social-section {
   .full-width-social-section .social-icon {
     font-size: 24px;
   }
-
-  .api-product-image {
-    height: 150px;
-  }
 }
 
 @media (max-width: 480px) {
+  .about-card, .info-card {
+    padding: 20px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
   .social-icons {
     gap: 15px;
   }
@@ -273,13 +430,14 @@ full-width-social-section {
   .full-width-social-section .social-icon {
     font-size: 22px;
   }
-
-  .additional-product-photo {
-    padding: 10px;
+  
+  .accordion-header {
+    padding: 12px 16px;
+    font-size: 0.95rem;
   }
-
-  .product-description {
-    font-size: 12px;
+  
+  .accordion-content {
+    padding: 0 16px;
   }
 }
 </style>
