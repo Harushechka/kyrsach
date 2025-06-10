@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "Сертификат на 3000 ₽",
+    "price": 3000,
+    "image": "/images/certificate-3000.jpg",
+    "description": "Идеальный подарок для ухода"
+  },
+  {
+    "id": 2,
+    "title": "Сертификат на 5000 ₽",
+    "price": 5000,
+    "image": "/images/certificate-5000.jpg",
+    "description": "Прекрасный подарок для любимых"
+  }
+]
