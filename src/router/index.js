@@ -1,9 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import CertificateView from '@/pages/CertificateView.vue'
+import About from '../views/AboutView.vue' 
 
 const routes = [
   { path: '/certificate', component: CertificateView },
-  // Добавь другие маршруты по заданию
+  {
+    path: '/about',
+    name: 'About',
+    component: About
+  },
 ]
 
 export const router = createRouter({
