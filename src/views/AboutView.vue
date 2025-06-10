@@ -57,12 +57,27 @@
         </div>
       </div>
     </section>
+
+    <!-- Секция социальных сетей -->
+    <div class="full-width-social-section">
+      <div class="social-content">
+        <h4>СОЦИАЛЬНЫЕ СЕТИ</h4>
+        <div class="divider"></div>
+        <p class="social-text">Подпишись на наши социальные сети, чтобы быть в курсе всех новостей.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-telegram"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-vk"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .about-page {
-  padding: 60px 0;
+  padding: 60px 0 0;
   background-color: #fff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -101,7 +116,7 @@
 
 /* Стили для блока команды */
 .team-section {
-  padding: 40px 0;
+  padding: 40px 0 60px;
 }
 
 .team-grid {
@@ -164,20 +179,8 @@
   font-size: 0.95rem;
 }
 
-@media (max-width: 768px) {
-  .about-card {
-    padding: 30px;
-  }
-  
-  .section-title {
-    font-size: 1.8rem;
-  }
-  
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-}
-.full-width-social-section {
+/* Стили для секции социальных сетей */
+full-width-social-section {
   width: 100vw;
   position: relative;
   left: 50%;
