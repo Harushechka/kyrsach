@@ -1,6 +1,6 @@
 <template>
   <div class="about-page">
-    <!-- Основной блок о компании -->
+  
     <section class="about-section">
       <div class="container">
         <div class="about-card">
@@ -14,7 +14,6 @@
       </div>
     </section>
 
-    <!-- Блок информации для клиентов -->
     <section class="info-section">
       <div class="container">
         <div class="info-card">
@@ -87,12 +86,12 @@
       </div>
     </section>
 
-    <!-- Блок команды -->
+    
     <section class="team-section">
       <div class="container">
         <h2 class="section-title text-center">Наша команда</h2>
         <div class="team-grid">
-          <!-- Карточка 1 -->
+         
           <div class="team-card">
             <div class="team-photo">
               <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&h=300&q=80" alt="Анна Ким">
@@ -104,7 +103,7 @@
             </div>
           </div>
 
-          <!-- Карточка 2 -->
+          
           <div class="team-card">
             <div class="team-photo">
               <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&h=300&q=80" alt="Дмитрий Пак">
@@ -116,7 +115,7 @@
             </div>
           </div>
 
-          <!-- Карточка 3 -->
+          
           <div class="team-card">
             <div class="team-photo">
               <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&h=300&q=80" alt="Елена Ли">
@@ -131,7 +130,7 @@
       </div>
     </section>
 
-    <!-- Секция социальных сетей -->
+    
     <div class="full-width-social-section">
       <div class="social-content">
         <h4>СОЦИАЛЬНЫЕ СЕТИ</h4>
@@ -180,7 +179,7 @@ export default {
   padding: 0 20px;
 }
 
-/* Стили для блока "О нас" */
+
 .about-section {
   margin-bottom: 60px;
 }
@@ -206,7 +205,7 @@ export default {
   margin-bottom: 15px;
 }
 
-/* Стили для блока информации для клиентов */
+
 .info-section {
   margin-bottom: 60px;
 }
@@ -264,7 +263,7 @@ export default {
   padding: 16px 0;
 }
 
-/* Стили для блока команды */
+
 .team-section {
   padding: 40px 0 60px;
 }
@@ -329,7 +328,7 @@ export default {
   font-size: 0.95rem;
 }
 
-/* Стили для секции социальных сетей */
+
 .full-width-social-section {
   width: 100vw;
   position: relative;
@@ -390,7 +389,7 @@ export default {
   transform: translateY(-3px);
 }
 
-/* Адаптивность */
+
 @media (max-width: 768px) {
   .about-card, .info-card {
     padding: 25px;

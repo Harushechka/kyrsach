@@ -1,7 +1,7 @@
 <template>
   <div class="certificate-page">
     <div class="certificate-layout">
-      <!-- Левая часть -->
+      
       <div class="promo-section">
         <div class="shop-info">
           <h3>K-GLOW</h3>
@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <!-- Правая часть -->
+      
       <div class="certificate-section">
         <div class="certificate-card">
           <div class="certificate-header">
@@ -51,7 +51,7 @@
           </div>
         </div>
 
-        <!-- Новый блок с фото товара из API -->
+        
         <div class="additional-product-photo">
           <img :src="apiProductImage" 
                alt="Дополнительный товар" 
@@ -76,7 +76,7 @@
       </div>
     </div>
 
-    <!-- Модальное окно -->
+    
     <div class="modal fade" id="certificateModal" tabindex="-1" aria-labelledby="certificateModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -133,9 +133,9 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const apiProductImage = ref('');
 const defaultImage = 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
-const unsplashAccessKey = 'P7DCJqgu3OLLQBA3UYGOltgoMc2OdR5JXKsMzB0s9WA'; // Здесь ваш ключ API Unsplash
+const unsplashAccessKey = 'P7DCJqgu3OLLQBA3UYGOltgoMc2OdR5JXKsMzB0s9WA'; 
 
-// Функция для загрузки изображения из Unsplash API
+
 const fetchProductImage = async () => {
   try {
     const response = await fetch(`https://api.unsplash.com/photos/random?query=cosmetics&client_id=${unsplashAccessKey}`);
@@ -147,12 +147,12 @@ const fetchProductImage = async () => {
   }
 };
 
-// Обработчик ошибки загрузки изображения
+
 const handleImageError = () => {
   apiProductImage.value = defaultImage;
 };
 
-// Загружаем изображение при монтировании компонента
+
 onMounted(() => {
   fetchProductImage();
 });
@@ -234,7 +234,7 @@ onMounted(() => {
   flex-direction: column;
 }
 
-/* Стили для нового блока с фото из API */
+
 .additional-product-photo {
   background: white;
   border-radius: 10px;
@@ -396,7 +396,7 @@ onMounted(() => {
   transform: translateY(-3px);
 }
 
-/* Адаптивность */
+
 @media (max-width: 768px) {
   .certificate-layout {
     flex-direction: column;
