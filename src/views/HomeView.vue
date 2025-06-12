@@ -109,20 +109,22 @@
 
     <!--о магазине-->
     <section class="py-5 bg-light">
-      <div class="container d-md-flex align-items-center">
-        <div class="col-md-6 mb-4 mb-md-0">
-          <img src="https://placehold.co/400x400/png?text=About" class="img-fluid rounded" alt="About">
-        </div>
-        <div class="col-md-6 px-md-5">
-          <h2>K‑GLOW</h2>
-          <p>
-            Наш магазин — это тщательно отобранная коллекция лучших косметических средств из Кореи. Мы предлагаем бренды COSRX,
-            Medi‑Peel, Missha и другие.
-          </p>
-          <router-link to="/about" class="btn btn-dark mt-3">ЗА ПОКУПКАМИ →</router-link>
-        </div>
-      </div>
-    </section>
+  <div class="container d-md-flex align-items-center">
+    <div class="col-md-6 mb-4 mb-md-0">
+      <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+           class="img-fluid rounded" 
+           alt="Корейская косметика от K-GLOW">
+    </div>
+    <div class="col-md-6 px-md-5">
+      <h2>K‑GLOW</h2>
+      <p>
+        Наш магазин — это тщательно отобранная коллекция лучших косметических средств из Кореи. Мы предлагаем бренды COSRX,
+        Medi‑Peel, Missha и другие.
+      </p>
+      <router-link to="/about" class="btn btn-dark mt-3">ЗА ПОКУПКАМИ →</router-link>
+    </div>
+  </div>
+</section>
   </div>
 </template>
 
@@ -132,24 +134,43 @@ import { useCartStore } from '@/stores/cartStore'
 const cartStore = useCartStore()
 
 const categories = [
-  { name: 'Уход за лицом', image: 'https://placehold.co/400x400/png?text=Face' },
-  { name: 'Уход за телом', image: 'https://placehold.co/400x400/png?text=Body' },
-  { name: 'Уход за волосами', image: 'https://placehold.co/400x400/png?text=Hair' },
-  { name: 'Макияж', image: 'https://placehold.co/400x400/png?text=Makeup' },
-  { name: 'Наборы', image: 'https://placehold.co/400x400/png?text=Kits' },
-  { name: 'Аксессуары', image: 'https://placehold.co/400x400/png?text=Accessories' },
+  { name: 'Уход за лицом', image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400&q=80' },
+  { name: 'Уход за телом', image: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400&q=80' },
+  { name: 'Уход за волосами', image: 'https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400&q=80' },
+  { name: 'Макияж', image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400&q=80' },
+  { name: 'Наборы', image: 'https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400&q=80' },
+  { name: 'Аксессуары', image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400&q=80' },
 ]
 
 const faceProducts = [
-  { id: 1, name: 'MIX PEEL PEPTIDE', description: 'Пилинг-сыворотка для лица', price: '3 790 ₽', image: 'https://placehold.co/400x400/png?text=Serum' },
-  { id: 2, name: 'NISSEHA B5 ACID', description: 'Увлажняющая сыворотка', price: '5 980 ₽', image: 'https://placehold.co/400x400/png?text=Oil'},
-  { id: 3, name: 'PEEL LACTO TONER', description: 'Очищающий тоник', price: '4 690 ₽', image: 'https://placehold.co/400x400/png?text=Toner'}
-]
+  {
+    id: 1,
+    name: 'MIX PEEL PEPTIDE',
+    description: 'Пилинг-сыворотка для лица',
+    price: '3 790 ₽',
+    image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400'
+  },
+  {
+    id: 2,
+    name: 'NISSEHA B5 ACID',
+    description: 'Увлажняющая сыворотка',
+    price: '5 980 ₽',
+    image: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400'
+  },
+  {
+    id: 3,
+    name: 'PEEL LACTO TONER',
+    description: 'Очищающий тоник',
+    price: '4 690 ₽',
+    image: 'https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400'
+  }
+];
+
 
 const bodyProducts = [
-  { id: 4, name: 'SOME BY MI AHA BHA', description: 'Очищающий гель для тела', price: '2640 ₽', image: 'https://placehold.co/400x400/png?text=Bodywash' },
-  { id: 5, name: 'PEPTIDE POLISHER', description: 'Роллер-крем для лица и шеи',price: '2320 ₽', image: 'https://placehold.co/400x400/png?text=Polisher' },
-  { id: 6, name: 'PEEL SILK SHINING',description: 'Гель-скраб для тела', price: '2510 ₽', image: 'https://placehold.co/400x400/png?text=Showercream' },
+  { id: 4, name: 'SOME BY MI AHA BHA', description: 'Очищающий гель для тела', price: '2640 ₽', image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&w=400&h=400&fit=crop&q=80'},
+  { id: 5, name: 'PEPTIDE POLISHER', description: 'Роллер-крем для лица и шеи',price: '2320 ₽', image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400&q=80' },
+  { id: 6, name: 'PEEL SILK SHINING',description: 'Гель-скраб для тела', price: '2510 ₽', image: 'https://images.unsplash.com/photo-1572635148818-ef6fd45eb394?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400&q=80' }
 ]
 
 const addToCart = (product) => {
