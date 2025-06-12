@@ -5,7 +5,7 @@
       <div class="promo-section">
         <div class="shop-info">
           <h3>K-GLOW</h3>
-          <p>Интернет-магазин корейской косметики</p>
+          <p>Магазин корейской косметики</p>
         </div>
 
         <div class="photo-area">
