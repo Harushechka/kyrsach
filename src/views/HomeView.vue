@@ -152,38 +152,38 @@ section {
   margin-bottom: 2rem;
 }
 
-/* Стили для всех кнопок */
+/*стили для всех кнопок */
 .btn {
-  border-radius: 50px !important; /* Округление */
+  border-radius: 50px !important; 
   padding: 10px 25px !important;
   transition: all 0.3s ease;
 }
 
 /* Основные розовые кнопки */
 .btn-dark {
-  background-color: #e84393 !important; /* Розовый цвет */
-  border-color: #e84393 !important;
+  background-color: #e84393 !important; 
+  border-color: #c21a6b !important;
   color: white !important;
 }
 
 .btn-dark:hover {
-  background-color: #e84393 !important; /* Темнее при наведении */
+  background-color: #ad175f !important; /*темнее при наведении */
   border-color: #e84393 !important;
 }
 
-/* Кнопка "ВСЕ АКЦИИ И СКИДКИ" */
+/*кнопка "ВСЕ АКЦИИ И СКИДКИ"*/
 .btn-outline-dark {
-  border-color: #e84393 !important;
+  border-color: #ce106c !important;
   color: #e84393 !important;
   background-color: transparent !important;
 }
 
 .btn-outline-dark:hover {
-  background-color: #e84393 !important;
+  background-color: #960f50 !important;
   color: white !important;
 }
 
-/* Текстовые ссылки со стрелкой */
+/*текстовые ссылки со стрелкой*/
 .btn-link {
   color: #e84393 !important;
 }
