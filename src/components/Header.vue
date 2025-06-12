@@ -4,7 +4,7 @@
     <nav class="nav">
       <router-link to="/" class="logo">K-Glow</router-link>
       <ul class="nav-links">
-        <li><router-link to="/">Главная</router-link></li>
+        <li><router-link to="/home">Главная</router-link></li>
         <li><router-link to="/certificate">Сертификаты</router-link></li>
         <li><router-link to="/about">О нас</router-link></li>
         <li>
