@@ -1,4 +1,4 @@
-<!-- src/components/Footer.vue -->
+
 <template>
   <footer class="site-footer">
     <p>&copy; 2025 K-Glow. Все права защищены.</p>

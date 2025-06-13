@@ -1,4 +1,4 @@
-<!-- src/components/Header.vue -->
+
 <template>
   <header class="site-header">
     <nav class="nav">
