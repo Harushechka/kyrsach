@@ -1,7 +1,6 @@
 <template>
   <div class="certificate-page">
     <div class="certificate-layout">
-      
       <div class="promo-section">
         <div class="shop-info">
           <h3>K-GLOW</h3>
@@ -15,7 +14,6 @@
         </div>
       </div>
 
-      
       <div class="certificate-section">
         <div class="certificate-card">
           <div class="certificate-header">
@@ -44,16 +42,15 @@
             </div>
 
             <div class="certificate-footer">
-              <button type="button" class="add-certificate-btn" data-bs-toggle="modal" data-bs-target="#certificateModal">
+              <button type="button" class="add-certificate-btn" @click="showModal">
                 Заказать сертификат
               </button>
             </div>
           </div>
         </div>
 
-        
         <div class="additional-product-photo">
-          <img :src="apiProductImage" 
+          <img :src="certificateStore.apiProductImage" 
                alt="Дополнительный товар" 
                class="api-product-image"
                @error="handleImageError">
@@ -76,40 +73,40 @@
       </div>
     </div>
 
-    
-    <div class="modal fade" id="certificateModal" tabindex="-1" aria-labelledby="certificateModalLabel" aria-hidden="true">
+    <!-- Модальное окно -->
+    <div class="modal fade" id="certificateModal" tabindex="-1" aria-labelledby="certificateModalLabel" aria-hidden="true" ref="modalElement">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-          <form>
+          <form @submit.prevent="handleCertificateSubmit">
             <div class="modal-header">
               <h5 class="modal-title" id="certificateModalLabel">ПОДАРОЧНЫЙ СЕРТИФИКАТ</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть" @click="hideModal"></button>
             </div>
             <div class="modal-body">
               <p class="text-muted mb-3">Оставьте ваши контакты, и мы свяжемся с вами.</p>
 
               <div class="mb-3">
                 <label for="name" class="form-label">Ваше имя <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="name" required>
+                <input type="text" class="form-control" id="name" v-model="certificateStore.formData.name" required>
               </div>
 
               <div class="mb-3">
                 <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                <input type="email" class="form-control" id="email" required>
+                <input type="email" class="form-control" id="email" v-model="certificateStore.formData.email" required>
               </div>
 
               <div class="mb-3">
                 <label for="recipient" class="form-label">На чье имя сертификат</label>
-                <input type="text" class="form-control" id="recipient">
+                <input type="text" class="form-control" id="recipient" v-model="certificateStore.formData.recipient">
               </div>
 
               <div class="mb-3">
                 <label for="phone" class="form-label">Телефон <span class="text-danger">*</span></label>
-                <input type="tel" class="form-control" id="phone" placeholder="+7 (999) 999-99-99" required>
+                <input type="tel" class="form-control" id="phone" v-model="certificateStore.formData.phone" placeholder="+7 (999) 999-99-99" required>
               </div>
 
               <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" id="agreement" required>
+                <input class="form-check-input" type="checkbox" id="agreement" v-model="certificateStore.formData.agreement" required>
                 <label class="form-check-label" for="agreement">
                   Я согласен на обработку персональных данных
                 </label>
@@ -128,34 +125,39 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { useCertificateStore } from '@/stores/certificates.store';
+import { useCartStore } from '@/stores/cartStore';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-const apiProductImage = ref('');
-const defaultImage = 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
-const unsplashAccessKey = 'P7DCJqgu3OLLQBA3UYGOltgoMc2OdR5JXKsMzB0s9WA'; 
+const certificateStore = useCertificateStore();
+const cartStore = useCartStore();
+const modalElement = ref(null);
 
+// Инициализация
+onMounted(() => {
+  certificateStore.fetchProductImage();
+  certificateStore.initModal(modalElement.value);
+});
 
-const fetchProductImage = async () => {
-  try {
-    const response = await fetch(`https://api.unsplash.com/photos/random?query=cosmetics&client_id=${unsplashAccessKey}`);
-    const data = await response.json();
-    apiProductImage.value = data.urls?.small || defaultImage;
-  } catch (error) {
-    console.error('Ошибка при загрузке изображения:', error);
-    apiProductImage.value = defaultImage;
-  }
-};
+// Очистка
+onBeforeUnmount(() => {
+  certificateStore.hideModal();
+});
 
+const showModal = () => certificateStore.showModal();
+const hideModal = () => certificateStore.hideModal();
 
 const handleImageError = () => {
-  apiProductImage.value = defaultImage;
+  certificateStore.apiProductImage = certificateStore.defaultImage;
 };
 
-
-onMounted(() => {
-  fetchProductImage();
-});
+const handleCertificateSubmit = () => {
+  certificateStore.createCertificate(cartStore);
+  alert(`Сертификат на 5000 ₽ успешно добавлен в корзину!${
+    certificateStore.formData.recipient ? '\nДля: ' + certificateStore.formData.recipient : ''
+  }`);
+};
 </script>
 
 <style scoped>
@@ -233,7 +235,6 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
 }
-
 
 .additional-product-photo {
   background: white;
@@ -335,7 +336,6 @@ onMounted(() => {
   background-color: #d63073;
 }
 
-/* Новые стили для блока социальных сетей */
 .full-width-social-section {
   width: 100vw;
   position: relative;
@@ -395,7 +395,6 @@ onMounted(() => {
   color: #d63073;
   transform: translateY(-3px);
 }
-
 
 @media (max-width: 768px) {
   .certificate-layout {
