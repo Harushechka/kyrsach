@@ -5,7 +5,7 @@ import HomeView from '@/views/HomeView.vue'
 import Cart from '@/views/Cart.vue'
 
 const routes = [
-  { path: '/', redirect: '/home' }, // Редирект с "/" на "/home"
+  { path: '/', redirect: '/home' }, 
   { path: '/certificate', component: CertificateView },
   { path: '/about', name: 'About', component: About },
   { path: '/home', component: HomeView },
