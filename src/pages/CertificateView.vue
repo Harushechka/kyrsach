@@ -67,7 +67,6 @@
         <div class="social-icons">
           <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
           <a href="#" class="social-icon"><i class="bi bi-telegram"></i></a>
-          <a href="#" class="social-icon"><i class="bi bi-vk"></i></a>
           <a href="#" class="social-icon"><i class="bi bi-whatsapp"></i></a>
         </div>
       </div>
